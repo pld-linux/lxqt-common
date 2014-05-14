@@ -6,11 +6,12 @@
 Summary:	lxqt-common
 Name:		lxqt-common
 Version:	0.7.0
-Release:	0.1
+Release:	0.2
 License:	GPLv2 and LGPL-2.1+
 Group:		X11/Applications
 Source0:	http://lxqt.org/downloads/lxqt/0.7.0/%{name}-%{version}.tar.xz
 # Source0-md5:	f1a64db07d04f686b584cc8952479910
+Patch0:		startlxqt.patch
 URL:		http://www.lxqt.org/
 BuildRequires:	cmake >= 2.8.3
 BuildRequires:	xz-devel
@@ -23,6 +24,7 @@ lxqt-common.
 
 %prep
 %setup -q -c %{name}-%{version}
+%patch0 -p1
 
 %build
 install -d build
