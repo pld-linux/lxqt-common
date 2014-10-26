@@ -1,11 +1,10 @@
---- lxqt-common-0.7.0/startlxqt.in.orig	2014-05-14 08:38:59.553023365 +0200
-+++ lxqt-common-0.7.0/startlxqt.in	2014-05-14 08:39:14.589614229 +0200
-@@ -27,7 +27,7 @@ fi
- # FIXME: the plugin is not yet ready
- export QT_PLATFORM_PLUGIN=lxqt
+--- startlxqt.in.orig   2014-08-23 11:12:54.000000000 +0200
++++ startlxqt.in        2014-10-18 23:57:51.336099878 +0200
+@@ -30,7 +30,7 @@
+ export QT_QPA_PLATFORMTHEME=lxqt
  
+ # use lxde-applications.menu for main app menu
 -export XDG_MENU_PREFIX="lxde-"
 +###export XDG_MENU_PREFIX="lxde-"
  
  export XDG_CURRENT_DESKTOP="LXQt"
- 
