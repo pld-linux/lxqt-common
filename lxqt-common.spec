@@ -6,7 +6,7 @@
 Summary:	lxqt-common
 Name:		lxqt-common
 Version:	0.10.0
-Release:	0.9
+Release:	1
 License:	GPLv2 and LGPL-2.1+
 Group:		X11/Applications
 Source0:	http://downloads.lxqt.org/lxqt/%{version}/%{name}-%{version}.tar.xz
@@ -14,6 +14,7 @@ Source0:	http://downloads.lxqt.org/lxqt/%{version}/%{name}-%{version}.tar.xz
 Patch0:		startlxqt.patch
 URL:		http://www.lxqt.org/
 BuildRequires:	cmake >= 2.8.3
+BuildRequires:	liblxqt-devel >= 0.10.0
 BuildRequires:	xz-devel
 Requires:	liblxqt >= 0.10.0
 BuildArch:	noarch
@@ -47,21 +48,24 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %{_datadir}/xsessions/lxqt.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-compton.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-desktop.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-globalkeyshortcuts.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-notifications.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-panel.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-policykit-agent.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-powermanagement.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-qlipper-autostart.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-runner.desktop
-%{_sysconfdir}/qt5/autostart/lxqt-xscreensaver-autostart.desktop
-%{_sysconfdir}/qt5/lxqt/lxqt.conf
-%{_sysconfdir}/qt5/lxqt/session.conf
-%{_sysconfdir}/qt5/lxqt/windowmanagers.conf
-%{_sysconfdir}/qt5/menus/lxqt-applications.menu
-%{_sysconfdir}/qt5/pcmanfm-qt/lxqt/settings.conf
+%{_sysconfdir}/xdg/autostart/lxqt-compton.desktop
+%{_sysconfdir}/xdg/autostart/lxqt-desktop.desktop
+%{_sysconfdir}/xdg/autostart/lxqt-globalkeyshortcuts.desktop
+%{_sysconfdir}/xdg/autostart/lxqt-notifications.desktop
+%{_sysconfdir}/xdg/autostart/lxqt-panel.desktop
+%{_sysconfdir}/xdg/autostart/lxqt-policykit-agent.desktop
+%{_sysconfdir}/xdg/autostart/lxqt-powermanagement.desktop
+%{_sysconfdir}/xdg/autostart/lxqt-qlipper-autostart.desktop
+%{_sysconfdir}/xdg/autostart/lxqt-runner.desktop
+%{_sysconfdir}/xdg/autostart/lxqt-xscreensaver-autostart.desktop
+%dir %{_sysconfdir}/xdg/lxqt
+%{_sysconfdir}/xdg/lxqt/lxqt.conf
+%{_sysconfdir}/xdg/lxqt/session.conf
+%{_sysconfdir}/xdg/lxqt/windowmanagers.conf
+%{_sysconfdir}/xdg/menus/lxqt-applications.menu
+%dir %{_sysconfdir}/xdg/pcmanfm-qt
+%dir %{_sysconfdir}/xdg/pcmanfm-qt/lxqt
+%{_sysconfdir}/xdg/pcmanfm-qt/lxqt/settings.conf
 %attr(755,root,root) %{_bindir}/startlxqt
 %{_datadir}/desktop-directories/lxqt-leave.directory
 %{_datadir}/desktop-directories/lxqt-settings.directory
