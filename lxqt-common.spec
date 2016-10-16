@@ -5,18 +5,18 @@
 
 Summary:	lxqt-common
 Name:		lxqt-common
-Version:	0.10.0
+Version:	0.11.0
 Release:	1
 License:	GPLv2 and LGPL-2.1+
 Group:		X11/Applications
 Source0:	http://downloads.lxqt.org/lxqt/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	6bf2c06e0de15da33a054bb02b681b02
+# Source0-md5:	cd3beb74d1634922f720581a39a3ae84
 Patch0:		startlxqt.patch
 URL:		http://www.lxqt.org/
 BuildRequires:	cmake >= 2.8.3
-BuildRequires:	liblxqt-devel >= 0.10.0
+BuildRequires:	liblxqt-devel >= 0.11.0
 BuildRequires:	xz-devel
-Requires:	liblxqt >= 0.10.0
+Requires:	liblxqt >= 0.11.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,6 +31,7 @@ lxqt-common.
 install -d build
 cd build
 %cmake \
+	-DPULL_TRANSLATIONS=OFF \
 	../
 
 %{__make}
@@ -38,6 +39,7 @@ cd build
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/X11/sessions
+install -d $RPM_BUILD_ROOT%{_datadir}/lxqt/icons
 
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -84,9 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/lxqt/graphics/spacer-dark-line.svg
 %{_datadir}/lxqt/graphics/spacer-light-dots.svg
 %{_datadir}/lxqt/graphics/spacer-light-line.svg
-%dir %{_datadir}/lxqt/openbox
-%{_datadir}/lxqt/openbox/menu.xml
-%{_datadir}/lxqt/openbox/rc.xml.in
+%dir %{_datadir}/lxqt
+%dir %{_datadir}/lxqt/icons
 %dir %{_datadir}/lxqt/themes
 %dir %{_datadir}/lxqt/themes/ambiance
 %{_datadir}/lxqt/themes/ambiance/Butterfly-Kenneth-Wimer.jpg
@@ -139,7 +140,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/lxqt/themes/frost/lxqt-runner/close.svg
 %{_datadir}/lxqt/themes/frost/lxqt-runner/down-arrow.svg
 %{_datadir}/lxqt/themes/frost/mainmenu.svg
-%{_datadir}/lxqt/themes/frost/numix.png
 %{_datadir}/lxqt/themes/frost/preview.png
 %dir %{_datadir}/lxqt/themes/frost/spacer-plugin
 %{_datadir}/lxqt/themes/frost/spacer-plugin/spacer-dots.svg
@@ -188,3 +188,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/lxqt/themes/light/spacer-plugin/spacer-dots.svg
 %{_datadir}/lxqt/themes/light/spacer-plugin/spacer-line.svg
 %{_datadir}/lxqt/themes/light/wallpaper.cfg
+
+/etc/xdg/lxqt/globalkeyshortcuts.conf
+/etc/xdg/openbox/lxqt-rc.xml
+%{_iconsdir}/hicolor/scalable/apps/lxqt.svg
+%{_datadir}/lxqt/themes/frost/color-picker.svg
+%{_datadir}/lxqt/themes/frost/lxqt-origami-light.png
+%dir %{_datadir}/lxqt/themes/system
+%{_datadir}/lxqt/themes/system/lxqt-panel.qss
+%{_datadir}/lxqt/themes/system/preview.png
+%dir %{_datadir}/lxqt/themes/system/spacer-plugin
+%{_datadir}/lxqt/themes/system/spacer-plugin/spacer-dots.svg
+%{_datadir}/lxqt/themes/system/spacer-plugin/spacer-line.svg
+%{_mandir}/man1/startlxqt.1*
